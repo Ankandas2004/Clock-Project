@@ -1,0 +1,726 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #1d2b64, #c42152);
+    color: #16c1ec;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.nav{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 55px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(180deg, #8391c4, #ad3d5e);
+    overflow-x: auto;
+    display: flex;
+}
+
+.nav-link{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    min-width: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: sans-serif;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.8);;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition:background-color 0.1s ease-in-out;
+    border-radius: 10px;
+    color: black;
+}
+
+.nav-link:hover{
+    cursor: pointer;
+    background: #2E94E3;
+    box-shadow: 0 0 30px #2E94E3;
+    color: black;
+    border-radius: 10px;
+}
+
+.nav-icon{
+    font-size: 18px;
+}
+
+.nav-link:focus { 
+    color: white; 
+    transform: scale(1.05);
+    transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out; 
+}
+
+
+                     /*STOPWATCH CSS*/
+
+.container{
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    min-width: 500px;
+    transform: translate(-50%,-50%);
+    padding-top: 0;
+    padding-bottom: 20px;
+    position: absolute;
+    border: 1px solid black;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: rgba(0,0,0,0.4) 0px 2px 4px,
+                rgba(0,0,0,0.3) 0px 7px 13px -3px,
+                rgba(0,0,0,0.2) 0px -3px 0px inset;            
+} 
+
+#timer-display{
+    width: 100%;
+    background: white;
+    padding: 40px 0;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+#laps{
+    color: azure;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    max-height: 150px;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+.action{
+    width: 85%;
+    margin: 60px auto 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 30px;
+}
+
+.action button{
+    padding: 10px 20px;
+    color: white;
+    background: #2E94E3;
+    border-radius: 1px solid black;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: rgba(0,0,0,0.4) 0px 2px 4px,
+                rgba(0,0,0,0.3) 0px 7px 13px -3px,
+                rgba(0,0,0,0.2) 0px -3px 0px inset;
+}
+
+.action button:hover{
+    cursor: pointer;
+    background: #2E94E3;
+    box-shadow: 0 0 30px #2E94E3;
+    color: white;
+    padding: 7px 17px;
+}
+
+h1{
+    text-align: center;
+    margin-top: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:xx-large;
+    color: white;
+}
+
+@media (max-width: 767.98px) {
+    .container {
+        width: 80%;
+        min-width: auto;
+        padding-bottom: 20px;
+    }
+
+    #timer-display {
+        font-size: 2.5rem;
+        padding: 30px 0;
+    }
+
+    .action {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
+
+    .action button {
+        font-size: 16px;
+        padding: 3px 15px;
+    }
+
+    h1 {
+        font-size: large;
+        margin-top: 18px;
+    }
+    #laps{
+        max-height: 100px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .container {
+        width: 60%;
+    }
+
+    #timer-display {
+        font-size: 3rem;
+        padding: 35px 0;
+    }
+
+    .action {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 25px;
+    }
+
+    .action button {
+        font-size: 17px;
+        padding: 9px 18px;
+    }
+
+    h1 {
+        font-size: x-large;
+        margin-top: 18px;
+    }
+    #laps{
+        max-height: 130px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .container {
+        width: 50%;
+    }
+
+    #timer-display {
+        font-size: 3.5rem;
+        padding: 38px 0;
+    }
+
+    .action {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 28px;
+    }
+
+    .action button {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+
+    h1 {
+        font-size: xx-large;
+        margin-top: 18px;
+    }
+    #laps{
+        max-height: 140px;
+    }
+}
+
+                     /*ALARM CLOCK CSS*/
+
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+.alarm{
+    border: 3px solid #2E94E3;
+    border-radius: 8px;
+}
+
+.alarm h1{
+    color: white;
+}
+
+.datetime{
+    color: #fff;
+    background: #22222b;
+    font-family: "Segoe UI", sans-serif;
+    width: 340px;
+    padding: 15px 10px;
+    transition: 0.4s;
+    transition-property: background,box-shadow;
+    
+}
+
+.datetime:hover{
+    background: #2E94E3;
+    box-shadow: 0 0 30px #2E94E3;
+    border-radius: 5px;
+}
+
+.date{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.time{
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.time span:not(:last-child){
+    position: relative;
+    max-width: 0 6px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.time span:last-child{
+    background: #2E94E3;
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 10px;
+    padding: 0 5px;
+    border-radius: 3px;
+}
+
+hr{
+    border: 1px solid #2E94E3;
+    margin: 20px auto;
+}
+
+.setAlarm{
+    display: flex;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+.column select{
+    background: #10101E;
+    color: #fff;
+    text-align: center;
+    padding: 8px 4px;
+    border: 1px solid #2E94E3;
+    border-radius: 18px;
+}
+
+
+#btn-setAlarm, .btn-delete, #stopAlarm{
+    padding: 5px;
+    color: #fff;
+    background: #2E94E3;
+    border: 1px solid #2E94E3;
+    border-radius: 18px;
+}
+
+#stopAlarm{
+    visibility: hidden;
+    width: 100px;
+    margin: 0 34%;
+}
+
+.btn-delete{
+    margin-left: 50px;
+}
+
+#btn-setAlarm:hover, .btn-delete:hover, #stopAlarm:hover{
+    cursor: pointer;
+    background: #2E94E3;
+    box-shadow: 0 0 30px #2E94E3;
+    color: white;
+}
+
+h3{
+    
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+.alarmList{
+    color:white;
+    margin: 14px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    max-height: 50px;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+.alarmLog{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 6px auto;
+}
+
+@media (max-width: 767.98px) {
+    .datetime {
+        width: 100%;
+        padding: 10px 0.5px;
+    }
+
+    .date {
+        font-size: 16px;
+    }
+
+    .time {
+        font-size: 40px;
+    }
+
+    .time span:last-child {
+        font-size: 20px;
+        margin-top: 5px;
+    }
+
+    .setAlarm {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .column select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #stopAlarm {
+        width: 80px;
+        margin: 10px px;
+    }
+
+    .btn-delete {
+        margin: 10px 0 0 0;
+    }
+
+    h3 {
+        font-size: 18px;
+        margin-bottom: 5%;
+    }
+
+    .alarmLog {
+        font-size: 20px;
+    }
+    .btn-delete{
+        margin-left: 30px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .datetime {
+        width: 100%;
+        padding: 10px 0.5px;
+    }
+
+    .date {
+        font-size: 18px;
+    }
+
+    .time {
+        font-size: 50px;
+    }
+
+    .time span:last-child {
+        font-size: 25px;
+        margin-top: 8px;
+    }
+
+    .setAlarm {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .column select {
+        width: 85%;
+    }
+
+    #stopAlarm {
+        width: 90px;
+        margin: 0 32%;
+    }
+
+    h3 {
+        font-size: 19px;
+    }
+
+    .alarmLog {
+        font-size: 25px;
+    }
+    .btn-delete{
+        margin-left: 30px;
+    }
+}
+
+ @media (min-width: 992px) and (max-width: 1199.98px) {
+    .datetime {
+        width: 100%;
+        padding: 10px 0.5px;
+    }
+
+    .date {
+        font-size: 20px;
+    }
+
+    .time {
+        font-size: 55px;
+    }
+
+    .time span:last-child {
+        font-size: 28px;
+        margin-top: 9px;
+    }
+
+    .setAlarm {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .column select {
+        width: 85%;
+    }
+
+    #stopAlarm {
+        width: 100px;
+        margin: 0 30%;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .alarmLog {
+        font-size: 28px;
+    }
+    .btn-delete{
+        margin-left: 30px;
+    }
+}
+
+                     /*WORLD CLOCK CSS*/
+
+
+.contain {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+}
+
+.contain h1{
+    color: #ffffff;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+select {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.clock-display {
+    background-color: #1d2b64;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    font-size: 1.5em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.clock-display:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .contain {
+        width: 100%;
+        max-width: 400px;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .clock-display {
+        font-size: 1.3em;
+        padding: 15px;
+    }
+
+    select {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contain {
+        width: 100%;
+        max-width: 300px;
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    .clock-display {
+        font-size: 1.1em;
+        padding: 10px;
+    }
+
+    select {
+        max-width: 200px;
+    }
+}
+
+
+                    /*COUNTDOWN TIMER CSS*/
+
+
+.countdown-container {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.countdown-container h1 {
+    margin-bottom: 20px;
+    font-size: 1.7em;
+    color:white;
+}
+
+form {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+label {
+    font-size: 1em;
+}
+
+input[type="datetime-local"] {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    margin: 10px 0;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #1d2b64;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #f8cdda;
+    color: #333;
+    transform: scale(1.05);
+}
+
+.countdown {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.time1 {
+    background: #333;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 60px;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    flex: 1 1 80px;
+    box-sizing: border-box;
+}
+
+.time1 span {
+    font-size: 0.9em;
+    display: block;
+}
+
+.time1 p {
+    margin: 5px 0 0;
+    font-size: 1.0em;
+    font-weight: bold;
+}
+
+.time1:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 480px) {
+    .countdown-container {
+        padding: 15px;
+    }
+
+    .countdown-container h1 {
+        font-size: 1.2em;
+    }
+
+    input[type="datetime-local"] {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .time1 {
+        padding: 10px;
+    }
+
+    .time1 span {
+        font-size: 0.9em;
+    }
+
+    .time1 p {
+        font-size: 0.9em;
+    }
+}

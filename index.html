@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="initClock()">
+    <nav class="nav">
+        <a href="#" onclick="showSection('stopwatch')" class="nav-link">
+            <i class="fa-solid fa-stopwatch"></i>
+            <span class="nav-text">Stopwatch</span>
+        </a>
+        <a href="#" onclick="showSection('alarmclock')" class="nav-link">
+            <i class="fa-solid fa-clock"></i>
+            <span class="nav-text">Alarm Clock</span>
+        </a>
+        <a href="#" onclick="showSection('worldclock')" class="nav-link">
+            <i class="fa-solid fa-globe"></i>
+            <span class="nav-text">World Clock</span>
+        </a>
+        <a href="#" onclick="showSection('countdown')" class="nav-link">
+            <i class="fa-regular fa-clock"></i>
+            <span class="nav-text">Countdown Timer</span>
+        </a>
+    </nav>
+  
+    <!-- STOPWATCH SECTION -->
+
+    <div id="stopwatch" class="section">
+        <div class="container">
+            <h1>Stopwatch</h1>
+            <div id="timer-display">
+                00 : 00 : 00 : 00
+            </div>
+            <ul id="laps"></ul>
+            <div class="action">
+                <button id="start-timer" onclick="start()">Start</button>
+                <button id="pause-timer" onclick="pause()">Pause</button>
+                <button id="reset-timer" onclick="reset()">Reset</button>
+                <button id="restart-timer" onclick="restart()">Restart</button>
+                <button id="lap" onclick="lap()">Lap</button>
+                <button id="reset-lap" onclick="resetlap()">Reset Lap</button>
+            </div>
+        </div>
+    </div>
+     
+    <!-- ALARM CLOCK SECTION -->
+
+    <div id="alarmclock" class="section">
+        <div class="alarm">
+            <h1>Alarm Clock</h1>
+            <div class="datetime">
+                <div class="date">
+                    <span id="dayName">Day</span>,
+                    <span id="month">Month</span>,
+                    <span id="dayNum">00</span>,
+                    <span id="year">Year</span>
+                </div>
+                <div class="time">
+                    <span id="hour">00</span>:
+                    <span id="minutes">00</span>:
+                    <span id="seconds">00</span>:
+                    <span id="period">AM</span>
+                </div>
+                <button id="stopAlarm" onclick="stopAlarm()">Stop Alarm</button>
+            </div>
+    
+            <hr>
+    
+            <div class="setAlarm">
+                <div class="column">
+                    <select>
+                        <option value="setHour" selected hidden>Hour</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <select>
+                        <option value="setMinute" selected hidden>Minute</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <select>
+                        <option value="AM/PM" selected hidden>AM/PM</option>
+                    </select>
+                </div>
+                <button id="btn-setAlarm" type="submit">Set Alarm</button>
+            </div>
+    
+            <hr>
+    
+            <h3 id="alarm-h3"></h3>
+            <div class="alarmList"></div>
+        </div>
+    </div>
+
+    <!--WORLD CLOCK SECTION-->
+
+    <div id="worldclock" class="section">
+        <div class="contain">
+            <h1>World Clock</h1>
+            <h2>Time of selected Country</h2>
+            <select id="countrySelect">
+                <option value="">Select a country</option>
+            </select>
+            <div id="clockDisplay" class="clock-display">
+            </div>
+        </div>
+    </div>
+
+    <!--COUNTDOWN TIMER SECTION-->
+
+    <div id="countdown" class="section">
+        <div class="countdown-container">
+            <h1>Countdown Timer</h1>
+            <form id="date-form">
+                <label for="end-date">Select End Date and Time:</label>
+                <input type="datetime-local" id="end-date">
+                <button type="submit">Start Countdown</button>
+            </form>
+            <div class="countdown">
+                <div class="time1">
+                    <span id="days">00</span>
+                    <p>Days</p>
+                </div>
+                <div class="time1">
+                    <span id="hours">00</span>
+                    <p>Hours</p>
+                </div>
+                <div class="time1">
+                    <span id="minute">00</span>
+                    <p>Minutes</p>
+                </div>
+                <div class="time1">
+                    <span id="second">00</span>
+                    <p>Seconds</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
